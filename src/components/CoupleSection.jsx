@@ -81,7 +81,7 @@ function MonogramStage({ sectionRef }) {
   const LETTER_SIZE = 'clamp(2.6rem, 8vw, 4rem)';
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 160, position: 'relative', marginBottom: '3rem' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 180, position: 'relative' }}>
       {/* Float wrapper — activates when joined */}
       <motion.div
         style={{ display: 'flex', alignItems: 'center', position: 'relative' }}
@@ -169,17 +169,15 @@ export default function CoupleSection() {
         <div className="divider mt-4" />
       </motion.div>
 
-      {/* ── Scroll-driven F & A monogram ── */}
-      <MonogramStage sectionRef={sectionRef} />
-
-      {/* Couple cards — no individual monogram circles (the big stage above is the focus) */}
-      <div className="max-w-4xl mx-auto">
+      {/* Couple cards — Monogram is now integrated in the center of the grid */}
+      <div className="max-w-5xl mx-auto">
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '1.5rem 3.5rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '2rem',
             alignItems: 'center',
+            justifyItems: 'center'
           }}
         >
           <PersonCard
@@ -191,9 +189,9 @@ export default function CoupleSection() {
             delay={0.1}
           />
 
-          {/* Center separator — thin lines only */}
-          <div className="flex flex-col items-center justify-center" style={{ minHeight: 48 }}>
-            <div style={{ width: 1, height: 36, background: 'rgba(198,167,105,0.3)' }} />
+          {/* ── Scroll-driven F & A monogram integrated here ── */}
+          <div className="w-full overflow-hidden" style={{ minHeight: 180 }}>
+            <MonogramStage sectionRef={sectionRef} />
           </div>
 
           <PersonCard
