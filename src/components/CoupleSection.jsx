@@ -191,16 +191,9 @@ export default function CoupleSection() {
             delay={0.1}
           />
 
-          {/* Center & separator */}
+          {/* Center separator — thin lines only */}
           <div className="flex flex-col items-center justify-center" style={{ minHeight: 48 }}>
-            <div style={{ width: 1, height: 16, background: 'rgba(198,167,105,0.25)' }} />
-            <span
-              className="font-playfair my-1"
-              style={{ fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 400, color: GOLD, opacity: 0.4, lineHeight: 1 }}
-            >
-              &amp;
-            </span>
-            <div style={{ width: 1, height: 16, background: 'rgba(198,167,105,0.25)' }} />
+            <div style={{ width: 1, height: 36, background: 'rgba(198,167,105,0.3)' }} />
           </div>
 
           <PersonCard
