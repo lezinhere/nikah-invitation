@@ -108,6 +108,7 @@ export default function CountdownTimer() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.15 }}
+          className="mx-auto"
           style={{
             background: 'linear-gradient(135deg, #FAF7F2 0%, #F5EEE4 100%)',
             border: '1px solid rgba(198,167,105,0.28)',
@@ -116,6 +117,7 @@ export default function CountdownTimer() {
             marginBottom: '2.5rem',
             position: 'relative',
             overflow: 'hidden',
+            maxWidth: '100%',
           }}
         >
           {/* Corner accents */}

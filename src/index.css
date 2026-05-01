@@ -133,5 +133,56 @@ body {
   animation: floatBlob ease-in-out infinite;
 }
 
+/* ─── Layout Utilities (Explicit Fallbacks) ────────────── */
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.w-full  { width: 100% !important; }
+.flex    { display: flex !important; }
+.grid    { display: grid !important; }
+.flex-col { flex-direction: column !important; }
+.items-center { align-items: center !important; }
+.items-start  { align-items: flex-start !important; }
+.justify-center { justify-content: center !important; }
+.justify-start  { justify-content: flex-start !important; }
+.justify-end    { justify-content: flex-end !important; }
+.text-center    { text-align: center !important; }
+.relative       { position: relative !important; }
+.absolute       { position: absolute !important; }
+.inset-0        { top: 0; right: 0; bottom: 0; left: 0; }
+.inset-x-0      { left: 0; right: 0; }
+.hidden         { display: none !important; }
+
+@media (min-width: 768px) {
+  .md\:flex { display: flex !important; }
+  .md\:hidden { display: none !important; }
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .md\:justify-start { justify-content: flex-start !important; }
+  .md\:justify-end   { justify-content: flex-end !important; }
+  .md\:pr-24 { padding-right: 6rem !important; }
+  .md\:pl-24 { padding-left: 6rem !important; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:pr-32 { padding-right: 8rem !important; }
+  .lg\:pl-32 { padding-left: 8rem !important; }
+}
+
+.couple-heading-margin {
+  margin-bottom: 58px !important;
+}
+
+@media (min-width: 768px) {
+  .couple-heading-margin {
+    margin-bottom: 38px !important;
+  }
+}
+
+.couple-section-padding {
+  padding-top: 100px !important;
+  padding-bottom: 50px !important;
+}
+
 /* ─── Alternating section tints ──────────────────────────── */
 .section-tint { background-color: var(--bg-section); }
+
+
+

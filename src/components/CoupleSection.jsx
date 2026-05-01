@@ -81,7 +81,7 @@ function MonogramStage({ sectionRef }) {
   const LETTER_SIZE = 'clamp(2.6rem, 8vw, 4rem)';
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 180, position: 'relative' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', height: 'auto', paddingTop: '0.4rem', position: 'relative' }}>
       {/* Float wrapper — activates when joined */}
       <motion.div
         style={{ display: 'flex', alignItems: 'center', position: 'relative' }}
@@ -150,7 +150,7 @@ export default function CoupleSection() {
   return (
     <section
       ref={sectionRef}
-      className="section-tint relative pt-32 pb-40 px-6"
+      className="section-tint relative couple-section-padding px-6"
       style={{ zIndex: 1, position: 'relative' }}
     >
       {/* Heading */}
@@ -160,7 +160,7 @@ export default function CoupleSection() {
         initial="hidden"
         animate={titleInView ? 'visible' : 'hidden'}
         transition={{ duration: 0.8 }}
-        className="text-center mb-20 md:mb-24"
+        className="text-center couple-heading-margin"
       >
         <p className="section-label mb-3">Joining Together</p>
         <h2 className="section-heading" style={{ fontSize: 'clamp(1.6rem, 4.5vw, 2.6rem)' }}>
@@ -169,36 +169,45 @@ export default function CoupleSection() {
         <div className="divider mt-4" />
       </motion.div>
 
-      {/* Couple cards — Forced 3-column on desktop for perfect alignment */}
-      <div className="max-w-6xl mx-auto">
-        <div
-          className="grid grid-cols-1 md:grid-cols-3 items-start"
-          style={{
-            gap: '4rem 2rem',
-          }}
-        >
-          <PersonCard
-            initial="F"
-            name="Fasmin M"
-            lineage="Daughter of Hassan Kutty & Shareefa"
-            house="Moyalood House, Kondotty"
-            location="Malappuram"
-            delay={0.1}
-          />
+      {/* Couple Section Container */}
+      <div className="max-w-6xl mx-auto relative w-full flex flex-col items-center">
+        {/* Desktop Monogram Layer — Absolutely centered */}
+        <div className="hidden md:flex absolute inset-x-0 top-0 items-start justify-center pointer-events-none" style={{ paddingTop: '0' }}>
+          <div className="w-[300px] flex justify-center mt-[0.1rem]">
+            <MonogramStage sectionRef={sectionRef} />
+          </div>
+        </div>
 
-          {/* ── Scroll-driven F & A monogram — Aligned with names ── */}
-          <div className="w-full overflow-hidden flex flex-col items-center pt-2 md:pt-4" style={{ minHeight: 180 }}>
+        {/* Grid for Cards — Centered and symmetric */}
+        <div className="grid grid-cols-1 md:grid-cols-2 items-start w-full" style={{ gap: '1.2rem 0' }}>
+          {/* Bride */}
+          <div className="flex justify-center md:justify-end md:pr-24 lg:pr-32">
+            <PersonCard
+              initial="F"
+              name="Fasmin M"
+              lineage="Daughter of Hassan Kutty & Shareefa"
+              house="Moyalood House, Kondotty"
+              location="Malappuram"
+              delay={0.1}
+            />
+          </div>
+
+          {/* Mobile Monogram — Appears between cards only on small screens */}
+          <div className="md:hidden w-full overflow-hidden flex flex-col items-center" style={{ margin: '-0.5rem 0', padding: '20px 0' }}>
             <MonogramStage sectionRef={sectionRef} />
           </div>
 
-          <PersonCard
-            initial="A"
-            name="Adil Hussain"
-            lineage="Son of Asif Hussain & Fousiya"
-            house="Nasrin House, Thamarassery"
-            location="Kozhikode"
-            delay={0.2}
-          />
+          {/* Groom */}
+          <div className="flex justify-center md:justify-start md:pl-24 lg:pl-32">
+            <PersonCard
+              initial="A"
+              name="Adil Hussain"
+              lineage="Son of Asif Hussain & Fousiya"
+              house="Nasrin House, Thamarassery"
+              location="Kozhikode"
+              delay={0.2}
+            />
+          </div>
         </div>
       </div>
     </section>
