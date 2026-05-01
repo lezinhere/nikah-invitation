@@ -185,7 +185,7 @@ export default function CoupleSection() {
           <PersonCard
             initial="F"
             name="Fasmin M"
-            lineage="Daughter of Hassan Kutty Mangalath & Shareefa Poongadan"
+            lineage="Daughter of Hassan Kutty & Shareefa"
             house="Moyalood House, Kondotty"
             location="Malappuram"
             delay={0.1}
