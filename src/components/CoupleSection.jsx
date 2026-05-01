@@ -150,7 +150,7 @@ export default function CoupleSection() {
   return (
     <section
       ref={sectionRef}
-      className="section-tint relative py-28 px-6"
+      className="section-tint relative pt-32 pb-40 px-6"
       style={{ zIndex: 1, position: 'relative' }}
     >
       {/* Heading */}
@@ -160,7 +160,7 @@ export default function CoupleSection() {
         initial="hidden"
         animate={titleInView ? 'visible' : 'hidden'}
         transition={{ duration: 0.8 }}
-        className="text-center mb-10"
+        className="text-center mb-20 md:mb-24"
       >
         <p className="section-label mb-3">Joining Together</p>
         <h2 className="section-heading" style={{ fontSize: 'clamp(1.6rem, 4.5vw, 2.6rem)' }}>
@@ -169,15 +169,12 @@ export default function CoupleSection() {
         <div className="divider mt-4" />
       </motion.div>
 
-      {/* Couple cards — Monogram is now integrated in the center of the grid */}
-      <div className="max-w-5xl mx-auto">
+      {/* Couple cards — Forced 3-column on desktop for perfect alignment */}
+      <div className="max-w-6xl mx-auto">
         <div
+          className="grid grid-cols-1 md:grid-cols-3 items-start"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '2rem',
-            alignItems: 'center',
-            justifyItems: 'center'
+            gap: '4rem 2rem',
           }}
         >
           <PersonCard
@@ -189,8 +186,8 @@ export default function CoupleSection() {
             delay={0.1}
           />
 
-          {/* ── Scroll-driven F & A monogram integrated here ── */}
-          <div className="w-full overflow-hidden" style={{ minHeight: 180 }}>
+          {/* ── Scroll-driven F & A monogram — Aligned with names ── */}
+          <div className="w-full overflow-hidden flex flex-col items-center pt-2 md:pt-4" style={{ minHeight: 180 }}>
             <MonogramStage sectionRef={sectionRef} />
           </div>
 
