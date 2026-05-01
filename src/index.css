@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* ─── Design tokens ──────────────────────────────────────── */
+:root {
+  --bg:          #FAF7F2;
+  --bg-section:  #F2EDE6;
+  --text-primary: #2B2B2B;
+  --text-secondary: #6B6B6B;
+  --gold:        #C6A769;
+  --gold-muted:  rgba(198,167,105,0.18);
+  --blush:       #E8CFCF;
+}
+
+/* ─── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold); opacity: 0.5; border-radius: 2px; }
+
+/* ─── Font utilities ─────────────────────────────────────── */
+.font-cinzel      { font-family: 'Cinzel', serif; }
+.font-cinzel-deco { font-family: 'Cinzel Decorative', serif; }
+.font-playfair    { font-family: 'Playfair Display', serif; }
+.font-cormorant   { font-family: 'Cormorant Garamond', serif; }
+.font-inter       { font-family: 'Inter', sans-serif; }
+.font-arabic      { font-family: 'Amiri', serif; direction: rtl; }
+
+/* ─── Gold: used only for monogram, thin dividers, highlights ── */
+.gold-text { color: var(--gold); }
+
+/* Monogram-only gradient — keep this, nowhere else */
+.monogram-gradient {
+  background: linear-gradient(135deg, #a07830 0%, #C6A769 50%, #dfc08a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Thin divider ───────────────────────────────────────── */
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.45;
+  margin: 0 auto;
+}
+
+/* ─── Section label ──────────────────────────────────────── */
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* ─── Section heading ────────────────────────────────────── */
+.section-heading {
+  font-family: 'Cinzel', serif;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: 0.06em;
+}
+
+/* ─── Intro overlay ──────────────────────────────────────── */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* ─── Event card ─────────────────────────────────────────── */
+.event-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(198,167,105,0.2);
+  border-radius: 4px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.04);
+}
+
+/* ─── Countdown box ──────────────────────────────────────── */
+.countdown-box {
+  background: var(--bg-section);
+  border: 1px solid rgba(198,167,105,0.15);
+  border-radius: 4px;
+}
+
+/* ─── Petal canvas ───────────────────────────────────────── */
+#petal-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Blob background ────────────────────────────────────── */
+.blob-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+@keyframes floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(24px, -16px) scale(1.04); }
+  70%       { transform: translate(-16px, 12px) scale(0.97); }
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  animation: floatBlob ease-in-out infinite;
+}
+
+/* ─── Alternating section tints ──────────────────────────── */
+.section-tint { background-color: var(--bg-section); }
