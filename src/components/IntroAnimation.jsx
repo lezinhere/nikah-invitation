@@ -58,11 +58,11 @@ export default function IntroAnimation({ onComplete }) {
   // arabic → circle → initials → hold → exit
   useEffect(() => {
     const t = [
-      setTimeout(() => setPhase('circle'),   1000),
-      setTimeout(() => setPhase('initials'), 2300),
-      setTimeout(() => setPhase('hold'),     3400),
-      setTimeout(() => setPhase('exit'),     4400),
-      setTimeout(() => onComplete(),          5100),
+      setTimeout(() => setPhase('circle'),   400),
+      setTimeout(() => setPhase('initials'), 1500),
+      setTimeout(() => setPhase('hold'),     2500),
+      setTimeout(() => setPhase('exit'),     3500),
+      setTimeout(() => onComplete(),          4200),
     ];
     return () => t.forEach(clearTimeout);
   }, [onComplete]);
@@ -102,7 +102,7 @@ export default function IntroAnimation({ onComplete }) {
                   opacity: showCircle ? 0.3 : 0.85,
                   filter: 'blur(0px)',
                 }}
-                transition={{ duration: 1, ease: 'easeOut' }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
               >
                 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
               </motion.p>

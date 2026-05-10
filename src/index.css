@@ -79,7 +79,7 @@ body {
 .intro-overlay {
   position: fixed;
   inset: 0;
-  background: var(--bg);
+  background: #050505;
   z-index: 9999;
   display: flex;
   align-items: center;
